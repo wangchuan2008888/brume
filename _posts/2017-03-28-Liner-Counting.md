@@ -1,6 +1,5 @@
-tags:
-- linear counting
-- big data
+tags:[ linear counting, big data]
+
 本文参考http://blog.codinglabs.org/articles/algorithms-for-cardinality-estimation-part-ii.html
 [TOC]
 ## 简介
@@ -11,4 +10,5 @@ LC的基本思路是：设有一哈希函数H，其哈希结果空间有m个值�
 $$\widehat{n} = -m \log{\frac{u}{m}}$$
 为n的一个估计，且位最大似然估计（MLE）。
 示意图如下：
-<![Linear Counting](/public/images/1.png)>
+
+![Linear Counting](/public/images/1.png)
