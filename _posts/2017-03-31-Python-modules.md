@@ -17,3 +17,5 @@
 |pexpect|实现linuxexpect的功能|
 |parmiko|基于Python实现的SSH2远程安全连接|
 |fabric|更简单的SSH命令行工具|
+|shutil|高级用于文件操作的工具包|
+|glob|文件扫描模块|
