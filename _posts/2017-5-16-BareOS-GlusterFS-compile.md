@@ -55,8 +55,8 @@ PLUGIN_DIR=${BAREOS_HOME}/plugins
   --with-mon-sd-password="monsdpw" \
   --with-basename="localhost" \
   --with-hostname="localhost" \
-  --enable-includes=yes
-
+  --enable-includes=yes \
+  --with-glusterfs
 
 make
 make install
