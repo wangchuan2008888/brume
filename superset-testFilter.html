@@ -11748,7 +11748,7 @@ div#notebook {
 
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[9]:</div>
+<div class="prompt input_prompt">In&nbsp;[1]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="kn">from</span> <span class="nn">superset</span> <span class="kn">import</span> <span class="n">app</span><span class="p">,</span><span class="n">appbuilder</span>
@@ -11802,7 +11802,7 @@ div#notebook {
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre>&lt;__main__.Test at 0x7faefc1bb0d0&gt;</pre>
+<pre>&lt;__main__.Test at 0x7f7d97976210&gt;</pre>
 </div>
 
 </div>
@@ -11813,15 +11813,16 @@ div#notebook {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[18]:</div>
+<div class="prompt input_prompt">In&nbsp;[4]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span></span><span class="k">def</span> <span class="nf">test_request</span><span class="p">(</span><span class="n">url</span><span class="p">):</span>
+<div class=" highlight hl-ipython2"><pre><span></span><span class="n">request</span> <span class="o">=</span> <span class="n">flask</span><span class="o">.</span><span class="n">request</span>
+<span class="k">def</span> <span class="nf">test_request</span><span class="p">(</span><span class="n">url</span><span class="p">):</span>
     <span class="n">c</span> <span class="o">=</span> <span class="n">app</span><span class="o">.</span><span class="n">test_client</span><span class="p">()</span>
     <span class="n">c</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="s1">&#39;/login&#39;</span><span class="p">,</span><span class="n">data</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">username</span><span class="o">=</span><span class="s1">&#39;admin&#39;</span><span class="p">,</span><span class="n">password</span><span class="o">=</span><span class="s1">&#39;123456&#39;</span><span class="p">),</span><span class="n">follow_redirects</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
     <span class="k">with</span> <span class="n">app</span><span class="o">.</span><span class="n">test_request_context</span><span class="p">(</span><span class="n">formdata1</span><span class="p">):</span>
         <span class="n">request</span> <span class="o">=</span> <span class="n">flask</span><span class="o">.</span><span class="n">request</span>
-        <span class="n">resp</span> <span class="o">=</span> <span class="n">c</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">formdata1</span><span class="p">,</span><span class="n">follow_redirects</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+        <span class="n">resp</span> <span class="o">=</span> <span class="n">c</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">url</span><span class="p">,</span><span class="n">follow_redirects</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
         <span class="k">print</span> <span class="n">resp</span><span class="o">.</span><span class="n">data</span>
 <span class="c1">#     print flask.request.path</span>
 </pre></div>
@@ -11833,7 +11834,7 @@ div#notebook {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[16]:</div>
+<div class="prompt input_prompt">In&nbsp;[5]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="n">formdata1</span> <span class="o">=</span> <span class="s1">&#39;&#39;&#39;/test/select/8/?form_data={&quot;datasource&quot;:&quot;8__table&quot;,&quot;viz_type&quot;:&quot;dist_bar&quot;,&quot;granularity_sqla&quot;:null,&quot;time_grain_sqla&quot;:null,&quot;since&quot;:&quot;100 year ago&quot;,&quot;until&quot;:&quot;now&quot;,&quot;metrics&quot;:[&quot;count&quot;],&quot;groupby&quot;:[&quot;Operating System ID&quot;],&quot;columns&quot;:[],&quot;row_limit&quot;:null,&quot;show_legend&quot;:true,&quot;show_bar_value&quot;:false,&quot;bar_stacked&quot;:false,&quot;order_bars&quot;:false,&quot;y_axis_format&quot;:&quot;.3s&quot;,&quot;bottom_margin&quot;:&quot;auto&quot;,&quot;x_axis_label&quot;:&quot;&quot;,&quot;y_axis_label&quot;:&quot;&quot;,&quot;reduce_x_ticks&quot;:false,&quot;contribution&quot;:false,&quot;show_controls&quot;:false,&quot;where&quot;:&quot;&quot;,&quot;having&quot;:&quot;&quot;,&quot;filters&quot;:[]}&#39;&#39;&#39;</span>
@@ -11846,7 +11847,7 @@ div#notebook {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[19]:</div>
+<div class="prompt input_prompt">In&nbsp;[6]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="n">formdata2</span> <span class="o">=</span> <span class="s1">&#39;&#39;&#39;/test/select/8/?form_data={&quot;datasource&quot;:&quot;8__table&quot;,&quot;viz_type&quot;:&quot;dist_bar&quot;,&quot;granularity_sqla&quot;:null,&quot;time_grain_sqla&quot;:null,&quot;since&quot;:&quot;100 year ago&quot;,&quot;until&quot;:&quot;now&quot;,&quot;metrics&quot;:[&quot;count&quot;],&quot;groupby&quot;:[&quot;Operating System ID&quot;],&quot;columns&quot;:[],&quot;row_limit&quot;:null,&quot;show_legend&quot;:true,&quot;show_bar_value&quot;:false,&quot;bar_stacked&quot;:false,&quot;order_bars&quot;:false,&quot;y_axis_format&quot;:&quot;.3s&quot;,&quot;bottom_margin&quot;:&quot;auto&quot;,&quot;x_axis_label&quot;:&quot;&quot;,&quot;y_axis_label&quot;:&quot;&quot;,&quot;reduce_x_ticks&quot;:false,&quot;contribution&quot;:false,&quot;show_controls&quot;:false,&quot;where&quot;:&quot;&quot;,&quot;having&quot;:&quot;&quot;,&quot;filters&quot;:[{&quot;col&quot;:&quot;Country Code&quot;,&quot;val&quot;:&quot;CN&quot;,&quot;op&quot;:&quot;!=&quot;}]}&#39;&#39;&#39;</span>
@@ -11859,7 +11860,7 @@ div#notebook {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[20]:</div>
+<div class="prompt input_prompt">In&nbsp;[7]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="n">test_request</span><span class="p">(</span><span class="n">formdata1</span><span class="p">)</span>
@@ -11875,18 +11876,18 @@ div#notebook {
 
 <div class="output_area"><div class="prompt"></div>
 <div class="output_subarea output_stream output_stderr output_text">
-<pre>2017-07-14 22:29:52,061:INFO:root:<span class="ansi-cyan-fg">[stats_logger] (incr) loaded_from_cache</span>
-2017-07-14 22:29:52,071:INFO:root:SELECT &#34;Operating System ID&#34; AS &#34;Operating System ID&#34;, COUNT(*) AS count 
+<pre>2017-07-14 22:44:13,495:INFO:root:<span class="ansi-cyan-fg">[stats_logger] (incr) loaded_from_cache</span>
+2017-07-14 22:44:13,521:INFO:root:SELECT &#34;Operating System ID&#34; AS &#34;Operating System ID&#34;, COUNT(*) AS count 
 FROM dw GROUP BY &#34;Operating System ID&#34; ORDER BY count DESC
  LIMIT 50000 OFFSET 0
-2017-07-14 22:29:52,184:INFO:root:Caching for the next 86400 seconds
+2017-07-14 22:44:13,549:INFO:root:Caching for the next 86400 seconds
 </pre>
 </div>
 </div>
 
 <div class="output_area"><div class="prompt"></div>
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>{&#34;status&#34;: &#34;success&#34;, &#34;stacktrace&#34;: null, &#34;cache_timeout&#34;: 86400, &#34;is_cached&#34;: false, &#34;error&#34;: null, &#34;form_data&#34;: {&#34;bottom_margin&#34;: &#34;auto&#34;, &#34;y_axis_label&#34;: &#34;&#34;, &#34;row_limit&#34;: null, &#34;reduce_x_ticks&#34;: false, &#34;filters&#34;: [], &#34;show_controls&#34;: false, &#34;granularity_sqla&#34;: null, &#34;viz_type&#34;: &#34;dist_bar&#34;, &#34;since&#34;: &#34;100 year ago&#34;, &#34;x_axis_label&#34;: &#34;&#34;, &#34;order_bars&#34;: false, &#34;until&#34;: &#34;now&#34;, &#34;columns&#34;: [], &#34;show_bar_value&#34;: false, &#34;y_axis_format&#34;: &#34;.3s&#34;, &#34;metrics&#34;: [&#34;count&#34;], &#34;time_grain_sqla&#34;: null, &#34;show_legend&#34;: true, &#34;having&#34;: &#34;&#34;, &#34;datasource&#34;: &#34;8__table&#34;, &#34;contribution&#34;: false, &#34;where&#34;: &#34;&#34;, &#34;groupby&#34;: [&#34;Operating System ID&#34;], &#34;bar_stacked&#34;: false}, &#34;query&#34;: &#34;SELECT \&#34;Operating System ID\&#34; AS \&#34;Operating System ID\&#34;,\n       COUNT(*) AS count\nFROM dw\nGROUP BY \&#34;Operating System ID\&#34;\nORDER BY count DESC\nLIMIT 50000\nOFFSET 0&#34;, &#34;cached_dttm&#34;: &#34;2017-07-14T14:29:52&#34;, &#34;cache_key&#34;: &#34;f39c107443b582e4535a9541dcc3db9f&#34;, &#34;data&#34;: [{&#34;values&#34;: [{&#34;y&#34;: 12206, &#34;x&#34;: &#34;22&#34;}, {&#34;y&#34;: 3201, &#34;x&#34;: &#34;2&#34;}, {&#34;y&#34;: 2825, &#34;x&#34;: &#34;501032&#34;}, {&#34;y&#34;: 781, &#34;x&#34;: &#34;501026&#34;}, {&#34;y&#34;: 493, &#34;x&#34;: &#34;7&#34;}, {&#34;y&#34;: 224, &#34;x&#34;: &#34;501013&#34;}, {&#34;y&#34;: 152, &#34;x&#34;: &#34;13&#34;}, {&#34;y&#34;: 76, &#34;x&#34;: &#34;501012&#34;}, {&#34;y&#34;: 21, &#34;x&#34;: &#34;501009&#34;}, {&#34;y&#34;: 12, &#34;x&#34;: &#34;21&#34;}, {&#34;y&#34;: 3, &#34;x&#34;: &#34;3&#34;}, {&#34;y&#34;: 2, &#34;x&#34;: &#34;501027&#34;}, {&#34;y&#34;: 2, &#34;x&#34;: &#34;20&#34;}, {&#34;y&#34;: 1, &#34;x&#34;: &#34;501028&#34;}, {&#34;y&#34;: 1, &#34;x&#34;: &#34;1&#34;}], &#34;key&#34;: &#34;count&#34;}]}
+<pre>{&#34;status&#34;: &#34;success&#34;, &#34;stacktrace&#34;: null, &#34;cache_timeout&#34;: 86400, &#34;is_cached&#34;: false, &#34;error&#34;: null, &#34;form_data&#34;: {&#34;bottom_margin&#34;: &#34;auto&#34;, &#34;y_axis_label&#34;: &#34;&#34;, &#34;row_limit&#34;: null, &#34;reduce_x_ticks&#34;: false, &#34;filters&#34;: [], &#34;show_controls&#34;: false, &#34;granularity_sqla&#34;: null, &#34;viz_type&#34;: &#34;dist_bar&#34;, &#34;since&#34;: &#34;100 year ago&#34;, &#34;x_axis_label&#34;: &#34;&#34;, &#34;order_bars&#34;: false, &#34;until&#34;: &#34;now&#34;, &#34;columns&#34;: [], &#34;show_bar_value&#34;: false, &#34;y_axis_format&#34;: &#34;.3s&#34;, &#34;metrics&#34;: [&#34;count&#34;], &#34;time_grain_sqla&#34;: null, &#34;show_legend&#34;: true, &#34;having&#34;: &#34;&#34;, &#34;datasource&#34;: &#34;8__table&#34;, &#34;contribution&#34;: false, &#34;where&#34;: &#34;&#34;, &#34;groupby&#34;: [&#34;Operating System ID&#34;], &#34;bar_stacked&#34;: false}, &#34;query&#34;: &#34;SELECT \&#34;Operating System ID\&#34; AS \&#34;Operating System ID\&#34;,\n       COUNT(*) AS count\nFROM dw\nGROUP BY \&#34;Operating System ID\&#34;\nORDER BY count DESC\nLIMIT 50000\nOFFSET 0&#34;, &#34;cached_dttm&#34;: &#34;2017-07-14T14:44:13&#34;, &#34;cache_key&#34;: &#34;f39c107443b582e4535a9541dcc3db9f&#34;, &#34;data&#34;: [{&#34;values&#34;: [{&#34;y&#34;: 12206, &#34;x&#34;: &#34;22&#34;}, {&#34;y&#34;: 3201, &#34;x&#34;: &#34;2&#34;}, {&#34;y&#34;: 2825, &#34;x&#34;: &#34;501032&#34;}, {&#34;y&#34;: 781, &#34;x&#34;: &#34;501026&#34;}, {&#34;y&#34;: 493, &#34;x&#34;: &#34;7&#34;}, {&#34;y&#34;: 224, &#34;x&#34;: &#34;501013&#34;}, {&#34;y&#34;: 152, &#34;x&#34;: &#34;13&#34;}, {&#34;y&#34;: 76, &#34;x&#34;: &#34;501012&#34;}, {&#34;y&#34;: 21, &#34;x&#34;: &#34;501009&#34;}, {&#34;y&#34;: 12, &#34;x&#34;: &#34;21&#34;}, {&#34;y&#34;: 3, &#34;x&#34;: &#34;3&#34;}, {&#34;y&#34;: 2, &#34;x&#34;: &#34;501027&#34;}, {&#34;y&#34;: 2, &#34;x&#34;: &#34;20&#34;}, {&#34;y&#34;: 1, &#34;x&#34;: &#34;501028&#34;}, {&#34;y&#34;: 1, &#34;x&#34;: &#34;1&#34;}], &#34;key&#34;: &#34;count&#34;}]}
 </pre>
 </div>
 </div>
@@ -11897,7 +11898,7 @@ FROM dw GROUP BY &#34;Operating System ID&#34; ORDER BY count DESC
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[21]:</div>
+<div class="prompt input_prompt">In&nbsp;[8]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="n">test_request</span><span class="p">(</span><span class="n">formdata2</span><span class="p">)</span>
@@ -11913,18 +11914,19 @@ FROM dw GROUP BY &#34;Operating System ID&#34; ORDER BY count DESC
 
 <div class="output_area"><div class="prompt"></div>
 <div class="output_subarea output_stream output_stderr output_text">
-<pre>2017-07-14 22:30:05,056:INFO:root:<span class="ansi-cyan-fg">[stats_logger] (incr) loaded_from_cache</span>
-2017-07-14 22:30:05,066:INFO:root:SELECT &#34;Operating System ID&#34; AS &#34;Operating System ID&#34;, COUNT(*) AS count 
-FROM dw GROUP BY &#34;Operating System ID&#34; ORDER BY count DESC
+<pre>2017-07-14 22:44:14,673:INFO:root:<span class="ansi-cyan-fg">[stats_logger] (incr) loaded_from_cache</span>
+2017-07-14 22:44:14,684:INFO:root:SELECT &#34;Operating System ID&#34; AS &#34;Operating System ID&#34;, COUNT(*) AS count 
+FROM dw 
+WHERE &#34;Country Code&#34; != &#39;CN&#39; GROUP BY &#34;Operating System ID&#34; ORDER BY count DESC
  LIMIT 50000 OFFSET 0
-2017-07-14 22:30:05,098:INFO:root:Caching for the next 86400 seconds
+2017-07-14 22:44:14,708:INFO:root:Caching for the next 86400 seconds
 </pre>
 </div>
 </div>
 
 <div class="output_area"><div class="prompt"></div>
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>{&#34;status&#34;: &#34;success&#34;, &#34;stacktrace&#34;: null, &#34;cache_timeout&#34;: 86400, &#34;is_cached&#34;: false, &#34;error&#34;: null, &#34;form_data&#34;: {&#34;bottom_margin&#34;: &#34;auto&#34;, &#34;y_axis_label&#34;: &#34;&#34;, &#34;row_limit&#34;: null, &#34;reduce_x_ticks&#34;: false, &#34;filters&#34;: [], &#34;show_controls&#34;: false, &#34;granularity_sqla&#34;: null, &#34;viz_type&#34;: &#34;dist_bar&#34;, &#34;since&#34;: &#34;100 year ago&#34;, &#34;x_axis_label&#34;: &#34;&#34;, &#34;order_bars&#34;: false, &#34;until&#34;: &#34;now&#34;, &#34;columns&#34;: [], &#34;show_bar_value&#34;: false, &#34;y_axis_format&#34;: &#34;.3s&#34;, &#34;metrics&#34;: [&#34;count&#34;], &#34;time_grain_sqla&#34;: null, &#34;show_legend&#34;: true, &#34;having&#34;: &#34;&#34;, &#34;datasource&#34;: &#34;8__table&#34;, &#34;contribution&#34;: false, &#34;where&#34;: &#34;&#34;, &#34;groupby&#34;: [&#34;Operating System ID&#34;], &#34;bar_stacked&#34;: false}, &#34;query&#34;: &#34;SELECT \&#34;Operating System ID\&#34; AS \&#34;Operating System ID\&#34;,\n       COUNT(*) AS count\nFROM dw\nGROUP BY \&#34;Operating System ID\&#34;\nORDER BY count DESC\nLIMIT 50000\nOFFSET 0&#34;, &#34;cached_dttm&#34;: &#34;2017-07-14T14:30:05&#34;, &#34;cache_key&#34;: &#34;f39c107443b582e4535a9541dcc3db9f&#34;, &#34;data&#34;: [{&#34;values&#34;: [{&#34;y&#34;: 12206, &#34;x&#34;: &#34;22&#34;}, {&#34;y&#34;: 3201, &#34;x&#34;: &#34;2&#34;}, {&#34;y&#34;: 2825, &#34;x&#34;: &#34;501032&#34;}, {&#34;y&#34;: 781, &#34;x&#34;: &#34;501026&#34;}, {&#34;y&#34;: 493, &#34;x&#34;: &#34;7&#34;}, {&#34;y&#34;: 224, &#34;x&#34;: &#34;501013&#34;}, {&#34;y&#34;: 152, &#34;x&#34;: &#34;13&#34;}, {&#34;y&#34;: 76, &#34;x&#34;: &#34;501012&#34;}, {&#34;y&#34;: 21, &#34;x&#34;: &#34;501009&#34;}, {&#34;y&#34;: 12, &#34;x&#34;: &#34;21&#34;}, {&#34;y&#34;: 3, &#34;x&#34;: &#34;3&#34;}, {&#34;y&#34;: 2, &#34;x&#34;: &#34;501027&#34;}, {&#34;y&#34;: 2, &#34;x&#34;: &#34;20&#34;}, {&#34;y&#34;: 1, &#34;x&#34;: &#34;501028&#34;}, {&#34;y&#34;: 1, &#34;x&#34;: &#34;1&#34;}], &#34;key&#34;: &#34;count&#34;}]}
+<pre>{&#34;status&#34;: &#34;success&#34;, &#34;stacktrace&#34;: null, &#34;cache_timeout&#34;: 86400, &#34;is_cached&#34;: false, &#34;error&#34;: null, &#34;form_data&#34;: {&#34;bottom_margin&#34;: &#34;auto&#34;, &#34;y_axis_label&#34;: &#34;&#34;, &#34;row_limit&#34;: null, &#34;reduce_x_ticks&#34;: false, &#34;filters&#34;: [{&#34;col&#34;: &#34;Country Code&#34;, &#34;val&#34;: &#34;CN&#34;, &#34;op&#34;: &#34;!=&#34;}], &#34;show_controls&#34;: false, &#34;granularity_sqla&#34;: null, &#34;viz_type&#34;: &#34;dist_bar&#34;, &#34;since&#34;: &#34;100 year ago&#34;, &#34;x_axis_label&#34;: &#34;&#34;, &#34;order_bars&#34;: false, &#34;until&#34;: &#34;now&#34;, &#34;columns&#34;: [], &#34;show_bar_value&#34;: false, &#34;y_axis_format&#34;: &#34;.3s&#34;, &#34;metrics&#34;: [&#34;count&#34;], &#34;time_grain_sqla&#34;: null, &#34;show_legend&#34;: true, &#34;having&#34;: &#34;&#34;, &#34;datasource&#34;: &#34;8__table&#34;, &#34;contribution&#34;: false, &#34;where&#34;: &#34;&#34;, &#34;groupby&#34;: [&#34;Operating System ID&#34;], &#34;bar_stacked&#34;: false}, &#34;query&#34;: &#34;SELECT \&#34;Operating System ID\&#34; AS \&#34;Operating System ID\&#34;,\n       COUNT(*) AS count\nFROM dw\nWHERE \&#34;Country Code\&#34; != &#39;CN&#39;\nGROUP BY \&#34;Operating System ID\&#34;\nORDER BY count DESC\nLIMIT 50000\nOFFSET 0&#34;, &#34;cached_dttm&#34;: &#34;2017-07-14T14:44:14&#34;, &#34;cache_key&#34;: &#34;67d2ec122e4578850116f22d30804b12&#34;, &#34;data&#34;: [{&#34;values&#34;: [{&#34;y&#34;: 155, &#34;x&#34;: &#34;22&#34;}, {&#34;y&#34;: 62, &#34;x&#34;: &#34;501032&#34;}, {&#34;y&#34;: 20, &#34;x&#34;: &#34;2&#34;}, {&#34;y&#34;: 19, &#34;x&#34;: &#34;501026&#34;}, {&#34;y&#34;: 12, &#34;x&#34;: &#34;7&#34;}, {&#34;y&#34;: 5, &#34;x&#34;: &#34;501012&#34;}, {&#34;y&#34;: 4, &#34;x&#34;: &#34;501013&#34;}, {&#34;y&#34;: 1, &#34;x&#34;: &#34;13&#34;}], &#34;key&#34;: &#34;count&#34;}]}
 </pre>
 </div>
 </div>
